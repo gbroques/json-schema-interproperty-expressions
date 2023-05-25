@@ -15,3 +15,5 @@ The user can adjust any of the three inputs when the constraint is violated.
 |Demo|Diagram|
 |---|---|
 |![Demo](./json-schema-interproperty-expressions-demo.gif)|![Diagram](./diagram.svg)|
+
+[diagram.drawio](./diagram.drawio) may be edited at https://app.diagrams.net/
