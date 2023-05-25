@@ -12,4 +12,6 @@ The below GIF demonstrates validating a complex relationship between three relat
 
 The user can adjust any of the three inputs when the constraint is violated.
 
-![Demo](./json-schema-interproperty-expressions-demo.gif)
+|Demo|Diagram|
+|---|---|
+|![Demo](./json-schema-interproperty-expressions-demo.gif)|![Diagram](./diagram.svg)|

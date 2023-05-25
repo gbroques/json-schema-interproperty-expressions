@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net" modified="2023-05-25T22:18:16.713Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="E6aUikZGmQud76oSNigA" version="21.3.4" type="device">
+  <diagram name="Page-1" id="YiaHXon_vy-4w1y73wOt">
+    <mxGraphModel dx="868" dy="523" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;dashed=1;dashPattern=12 12;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="260" y="170" width="320" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="330" y="240" width="180" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="390" y="140" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="390" y="460" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="227" y="300" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-7" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="546" y="300" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-8" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="zUh-Cn1XTPdA7h6NK2O6-3" target="zUh-Cn1XTPdA7h6NK2O6-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="350" as="sourcePoint" />
+            <mxPoint x="450" y="300" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-9" value="Hub Holes Diameter" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="337.5" y="100" width="165" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-10" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="550" as="sourcePoint" />
+            <mxPoint x="510" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-11" value="Rotor Disk Central Hole Diameter" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="292.5" y="560" width="255" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-13" value="" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="zUh-Cn1XTPdA7h6NK2O6-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="420" as="sourcePoint" />
+            <mxPoint x="330" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-14" value="" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="zUh-Cn1XTPdA7h6NK2O6-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="510" y="330" as="sourcePoint" />
+            <mxPoint x="510" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-15" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="zUh-Cn1XTPdA7h6NK2O6-2" target="zUh-Cn1XTPdA7h6NK2O6-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="390" as="sourcePoint" />
+            <mxPoint x="480" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-16" value="Hub Pitch Circle Diameter" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="326.25" y="300" width="187.5" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-18" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="zUh-Cn1XTPdA7h6NK2O6-1" target="zUh-Cn1XTPdA7h6NK2O6-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="440" as="sourcePoint" />
+            <mxPoint x="350" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zUh-Cn1XTPdA7h6NK2O6-19" value="Must have 5 mm between these two edges." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="425" y="210" width="275" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

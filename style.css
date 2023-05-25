@@ -1,6 +1,13 @@
 body {
     font-family: sans-serif;
     font-size: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 800px;
+    margin: 5% auto;
+}
+form {
+    align-self: center;
 }
 input {
     display: block;
