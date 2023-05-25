@@ -1,4 +1,3 @@
-
 /**
  * Evaluates an expression in postfix notation.
  *
