@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Schema Interproperty Expressions</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 16px;
+        }
+        input {
+            display: block;
+        }
+        input:invalid {
+            outline-color: red;
+            border-color: red;
+        }
+        .validationMessage {
+            min-height: 18px;
+            color: red;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <label>
+                Hub Pitch Circle Diameter
+                <input
+                    type="number"
+                    name="HubPitchCircleDiameter"
+                    value="100"
+                    step="1"
+                />
+            </label>
+            <p class="validationMessage"></p>
+        </div>
+        <div>
+            <label>
+                Hub Holes Diameter
+                <input
+                    type="number"
+                    name="HubHolesDiameter"
+                    value="12"
+                    step="1"
+                />
+            </label>
+            <p class="validationMessage"></p>
+        </div>
+        <div>
+            <label>
+                Rotor Disk Central Hole Diameter
+                <input
+                    type="number"
+                    name="RotorDiskCentralHoleDiameter"
+                    value="65"
+                    step="1"
+                />
+            </label>
+            <p class="validationMessage"></p>
+        </div>
+        <div>
+            <label>
+                Yaw Pipe Diameter
+                <input
+                    type="number"
+                    name="YawPipeDiameter"
+                    value="60.3"
+                    step="0.1"
+                />
+            </label>
+            <p class="validationMessage"></p>
+        </div>
+    </form>
+    <script src="evaluatePostfixExpression.js"></script>
+    <script>
+        const schema = {
+            "type": "object",
+            "properties": {
+                "HubPitchCircleDiameter": {
+                    "type": "number",
+                    "title": "Hub Pitch Circle Diameter"
+                },
+                "HubHolesDiameter": {
+                    "type": "number",
+                    "title": "Hub Holes Diameter"
+                },
+                "RotorDiskCentralHoleDiameter": {
+                    "type": "number",
+                    "title": "Rotor Disk Central Hole Diameter"
+                },
+                "YawPipeDiameter": {
+                    "type": "number",
+                    "title": "Yaw Pipe Diameter"
+                }
+            },
+            "interpropertyExpressions": [
+                {
+                    "expression": "{HubPitchCircleDiameter} {HubHolesDiameter} - 10 - {RotorDiskCentralHoleDiameter} ≥",
+                    "type": "postfix",  // or potentially "prefix" / "infix"
+                    "message": "Must have 5 mm between central hole of rotor disk and hub holes.",
+                    "properties": [
+                        "HubPitchCircleDiameter",
+                        "HubHolesDiameter",
+                        "RotorDiskCentralHoleDiameter"
+                    ]
+                }
+            ]
+        };
+        const form = document.forms[0];
+        Object.entries(schema.properties).forEach(([propertyName, propertySchema]) => {
+            const input = form[propertyName];
+            input.addEventListener('input', () => {
+                for (const interpropertyExpression of schema.interpropertyExpressions) {
+                    const {expression, message, properties} = interpropertyExpression;
+                    
+                    const valueByName = {};
+                    for (const element of form.elements) {
+                        valueByName[element.name] = element.value;
+                    }
+                    const isValid = evaluatePostfixExpression(expression, valueByName);
+                    const setValidity = element => {
+                        const validationMessageElement = element.parentElement.parentElement.lastElementChild;
+                        if (!isValid) {
+                            element.setCustomValidity(message);
+                            validationMessageElement.innerText = message;
+                        } else {
+                            element.setCustomValidity('');
+                            validationMessageElement.innerText = '';
+                        }
+                    };
+                    const dependentProperties = properties.filter(property => property !== propertyName);
+                    dependentProperties.forEach(dependentProperty => {
+                        const dependentInput = form[dependentProperty];
+                        setValidity(dependentInput);
+                    });
+                    setValidity(input);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
