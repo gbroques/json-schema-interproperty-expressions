@@ -114,33 +114,41 @@
             ]
         };
         const form = document.forms[0];
-        Object.entries(schema.properties).forEach(([propertyName, propertySchema]) => {
-            const input = form[propertyName];
-            input.addEventListener('input', () => {
-                for (const interpropertyExpression of schema.interpropertyExpressions) {
-                    const {expression, message, properties} = interpropertyExpression;
-                    
-                    const valueByName = {};
-                    for (const element of form.elements) {
-                        valueByName[element.name] = element.value;
-                    }
-                    const isValid = evaluatePostfixExpression(expression, valueByName);
-                    const setCustomValidity = element => {
-                        const validationMessageElement = element.parentElement.parentElement.lastElementChild;
-                        if (!isValid) {
-                            element.setCustomValidity(message);
-                            validationMessageElement.innerText = message;
-                        } else {
-                            element.setCustomValidity('');
-                            validationMessageElement.innerText = '';
-                        }
-                    };
-                    properties.forEach(property => {
-                        setCustomValidity(form[property]);
-                    });
-                }
-            });
+        const handleInput = () => {
+            const valueByName = extractValueByName(form);
+            for (const interpropertyExpression of schema.interpropertyExpressions) {
+                const {expression, message, properties} = interpropertyExpression;
+
+                const isValid = evaluatePostfixExpression(expression, valueByName);
+                properties.forEach(property => {
+                    setCustomValidity(form[property], isValid, message);
+                });
+            }
+        };
+        Object.keys(schema.properties).forEach(property => {
+            const inputElement = form[property];
+            inputElement.addEventListener('input', handleInput);
         });
+        function extractValueByName(form) {
+            const valueByName = {};
+            for (const element of form.elements) {
+                valueByName[element.name] = element.value;
+            }
+            return valueByName;
+        }
+        function setCustomValidity(inputElement, isValid, message) {
+            const validationMessageElement = getValidationMessageElement(inputElement);
+            if (!isValid) {
+                inputElement.setCustomValidity(message);
+                validationMessageElement.innerText = message;
+            } else {
+                inputElement.setCustomValidity('');
+                validationMessageElement.innerText = '';
+            }
+        }
+        function getValidationMessageElement(inputElement) {
+            return inputElement.parentElement.parentElement.lastElementChild;
+        }
     </script>
 </body>
 </html>
