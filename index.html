@@ -100,6 +100,8 @@
             },
             "interpropertyExpressions": [
                 {
+                    // Equivalent expression in infix notation:
+                    // {HubPitchCircleDiameter} - {HubHolesDiameter} - 10 ≥ {RotorDiskCentralHoleDiameter}
                     "expression": "{HubPitchCircleDiameter} {HubHolesDiameter} - 10 - {RotorDiskCentralHoleDiameter} ≥",
                     "type": "postfix",  // or potentially "prefix" / "infix"
                     "message": "Must have 5 mm between central hole of rotor disk and hub holes.",
@@ -123,7 +125,7 @@
                         valueByName[element.name] = element.value;
                     }
                     const isValid = evaluatePostfixExpression(expression, valueByName);
-                    const setValidity = element => {
+                    const setCustomValidity = element => {
                         const validationMessageElement = element.parentElement.parentElement.lastElementChild;
                         if (!isValid) {
                             element.setCustomValidity(message);
@@ -133,12 +135,9 @@
                             validationMessageElement.innerText = '';
                         }
                     };
-                    const dependentProperties = properties.filter(property => property !== propertyName);
-                    dependentProperties.forEach(dependentProperty => {
-                        const dependentInput = form[dependentProperty];
-                        setValidity(dependentInput);
+                    properties.forEach(property => {
+                        setCustomValidity(form[property]);
                     });
-                    setValidity(input);
                 }
             });
         });
