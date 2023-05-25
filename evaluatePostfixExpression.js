@@ -24,12 +24,24 @@
 function evaluatePostfixExpression(expression, valueByName = {}) {
     const stack = [];
     const operationByOperator = {
+        // Arithmetic operators
+        "+": (a, b) => a + b,
         "-": (a, b) => a - b,
-        "≥": (a, b) => a >= b
+        "*": (a, b) => a * b,
+        "/": (a, b) => a / b,
+        "^": (a, b) => a ** b,
+
+        // Relational operators
+        "<": (a, b) => a < b,
+        "≤": (a, b) => a <= b,
+        ">": (a, b) => a > b,
+        "≥": (a, b) => a >= b,
+        "=": (a, b) => a == b,
+        "≠": (a, b) => a != b
     };
     for (const token of tokens(expression, valueByName)) {
-        if (operationByOperator[token]) {
-            const operation = operationByOperator[token];
+        const operation = operationByOperator[token];
+        if (operation) {
             const b = stack.pop();
             const a = stack.pop();
             const result = operation(a, b);
