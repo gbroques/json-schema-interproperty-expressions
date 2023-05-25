@@ -2,10 +2,12 @@
  * Evaluates an expression in postfix notation.
  *
  * The expression MAY contain variables surrounded by curly braces
- * which are substituted according to the `valueByName` map.
+ * which are substituted according to the `variables` map.
  *
  * Tokens (i.e. variables, operators, and operands) SHOULD
  * be delimited by white-space.
+ *
+ * For supported operators, see below `operators` map.
  *
  * The time complexity of the algorithm is O(n),
  * where n is the length of the expression.
@@ -17,13 +19,13 @@
  *
  * @param {string} expression Expression in postfix notation with variables surrounded
  *                            by curly braces and tokens delimited by white-space.
- * @param {Object.<string, string>} valueByName Map of variable values by name.
+ * @param {Object.<string, string>} variables Map of variable values by name.
  * @returns {*} Result of evaluated expression.
  *              A number for an arithmetic expression or boolean for relational expression.
  */
-function evaluatePostfixExpression(expression, valueByName = {}) {
+function evaluatePostfixExpression(expression, variables = {}) {
     const stack = [];
-    const operationByOperator = {
+    const operators = {
         // Arithmetic operators
         "+": (a, b) => a + b,
         "-": (a, b) => a - b,
@@ -39,12 +41,12 @@ function evaluatePostfixExpression(expression, valueByName = {}) {
         "=": (a, b) => a == b,
         "≠": (a, b) => a != b
     };
-    for (const token of tokens(expression, valueByName)) {
-        const operation = operationByOperator[token];
-        if (operation) {
+    for (const token of tokens(expression, variables)) {
+        const operator = operators[token];
+        if (operator) {
             const b = stack.pop();
             const a = stack.pop();
-            const result = operation(a, b);
+            const result = operator(a, b);
             stack.push(result);
         } else {
             const operand = parseFloat(token);
@@ -56,9 +58,9 @@ function evaluatePostfixExpression(expression, valueByName = {}) {
     return stack.pop();
 }
 
-function* tokens(expression, valueByName) {
+function* tokens(expression, variables) {
     let token = "";
-    for (const character of substitutedVariables(expression, valueByName)) {
+    for (const character of substitutedVariables(expression, variables)) {
         if (character !== " ") {
             token += character;
         } else {
@@ -71,7 +73,7 @@ function* tokens(expression, valueByName) {
     yield token;
 }
 
-function* substitutedVariables(expression, valueByName) {
+function* substitutedVariables(expression, variables) {
     let start = -1;
     for (let i = 0; i < expression.length; i++) {
         const character = expression[i];
@@ -79,7 +81,7 @@ function* substitutedVariables(expression, valueByName) {
             start = i;
         } else if (character === "}") {
             const name = expression.substring(start + 1, i);
-            const value = valueByName[name];
+            const value = variables[name];
             for (const valueCharacter of value) {
                 yield valueCharacter;
             }

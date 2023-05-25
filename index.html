@@ -97,11 +97,11 @@
         };
         const form = document.forms[0];
         const handleInput = () => {
-            const valueByName = extractValueByName(form);
+            const variables = extractVariables(form);
             for (const interpropertyExpression of schema.interpropertyExpressions) {
                 const {expression, message, properties} = interpropertyExpression;
 
-                const isValid = evaluatePostfixExpression(expression, valueByName);
+                const isValid = evaluatePostfixExpression(expression, variables);
                 properties.forEach(property => {
                     setCustomValidity(form[property], isValid, message);
                 });
@@ -111,12 +111,12 @@
             const inputElement = form[property];
             inputElement.addEventListener('input', handleInput);
         });
-        function extractValueByName(form) {
-            const valueByName = {};
+        function extractVariables(form) {
+            const variables = {};
             for (const element of form.elements) {
-                valueByName[element.name] = element.value;
+                variables[element.name] = element.value;
             }
-            return valueByName;
+            return variables;
         }
         function setCustomValidity(inputElement, isValid, message) {
             const validationMessageElement = getValidationMessageElement(inputElement);
