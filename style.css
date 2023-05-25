@@ -1,0 +1,17 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+}
+input {
+    display: block;
+}
+input:invalid {
+    outline-color: red;
+    border-color: red;
+}
+.validationMessage {
+    min-height: 18px;
+    color: red;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
