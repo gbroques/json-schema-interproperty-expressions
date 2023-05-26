@@ -97,9 +97,9 @@
             ]
         };
         const form = document.forms[0];
-        function getValidationMessageElement(inputElement) {
-            return inputElement.parentElement.parentElement.lastElementChild;
-        }
+        const getValidationMessageElement = (inputElement) => (
+            inputElement.parentElement.parentElement.lastElementChild
+        );
         addInputEventListeners(form, schema, getValidationMessageElement);
     </script>
 </body>
