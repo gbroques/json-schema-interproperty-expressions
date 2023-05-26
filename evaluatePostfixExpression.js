@@ -68,10 +68,9 @@ function evaluatePostfixExpression(expression, variables = {}) {
         }
     }
     const result = stack.pop();
-    let error = null;
-    if (stack.length) {
-        error = new Error(`Unevaluated operands "${stack.join(', ')}".`)
-    }
+    const error = stack.length ? 
+        new Error(`Unevaluated operands "${stack.join(', ')}".`) :
+        null;
     return [result, error];
 }
 
