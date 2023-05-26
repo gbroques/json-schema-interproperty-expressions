@@ -132,7 +132,7 @@ For example:
     },
     "message": {
       "type": "string",
-      "description": "Message to display if expression is not valid."
+      "description": "Message to display if expression evaluates to false."
     },
     "properties": {
       "type": "array",
