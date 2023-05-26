@@ -100,14 +100,22 @@
         const handleInput = () => {
             const variables = extractVariables(form);
             for (const interpropertyExpression of schema.interpropertyExpressions) {
-                const {expression, message, properties} = interpropertyExpression;
+                const {expression, type, message, properties} = interpropertyExpression;
 
-                const isValid = evaluatePostfixExpression(expression, variables);
+                const isValid = evaluateExpression(type, expression, variables);
                 properties.forEach(property => {
                     setCustomValidity(form[property], isValid, message);
                 });
             }
         };
+        function evaluateExpression(type, expression, variables) {
+            switch(type) {
+                case "postfix":
+                    return evaluatePostfixExpression(expression, variables);
+                default:
+                    throw new TypeError(`"${type}" expressions are not supported.`);
+            }
+        }
         Object.keys(schema.properties).forEach(property => {
             const inputElement = form[property];
             inputElement.addEventListener('input', handleInput);
@@ -115,9 +123,29 @@
         function extractVariables(form) {
             const variables = {};
             for (const element of form.elements) {
-                variables[element.name] = element.value;
+                const {name, value} = element;
+                const {type} = schema.properties[name];
+                variables[element.name] = cast(value, type);
             }
             return variables;
+        }
+        /**
+         * Casts a string into the appropriate JavaScript type.
+         * 
+         * @param {string} value String value.
+         * @param {string} type JSON Schema type.
+         * @see https://json-schema.org/understanding-json-schema/reference/type.html
+         */
+        function cast(value, type) {
+            switch(type) {
+                case "number":
+                case "integer":
+                    return Number(value);
+                case "boolean":
+                    return Boolean(value);
+                default:
+                    return value;
+            }
         }
         function setCustomValidity(inputElement, isValid, message) {
             const validationMessageElement = getValidationMessageElement(inputElement);
@@ -125,8 +153,8 @@
                 inputElement.setCustomValidity(message);
                 validationMessageElement.innerText = message;
             } else {
-                inputElement.setCustomValidity('');
-                validationMessageElement.innerText = '';
+                inputElement.setCustomValidity("");
+                validationMessageElement.innerText = "";
             }
         }
         function getValidationMessageElement(inputElement) {
