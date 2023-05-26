@@ -121,7 +121,7 @@ For example:
     },
     "type": {
       "type": "string",
-      "description": "Type of expression",
+      "description": "Type of expression. Implementing libraries may only support one or more types.",
       "enum": ["postfix", "infix", "prefix"]
     },
     "message": {
