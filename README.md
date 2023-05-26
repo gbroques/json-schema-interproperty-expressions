@@ -17,10 +17,12 @@ Simple use-cases for interproperty expressions are:
       "properties": {
         "startDate": {
           "type": "string",
+          "format": "date",
           "title": "Start Date"
         },
         "endDate": {
           "type": "string",
+          "format": "date",
           "title": "End Date"
         }
       },
