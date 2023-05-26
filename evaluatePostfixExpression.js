@@ -17,7 +17,7 @@
  * A safe alternative to eval.
  *
  * @example
- * evaluatePostfixExpression("{a} {b} -", {a: "4", b: "3"}) // => 1
+ * evaluatePostfixExpression("{a} {b} -", {a: 4, b: 3}) // => 1
  * 
  * @example
  * evaluatePostfixExpression(
