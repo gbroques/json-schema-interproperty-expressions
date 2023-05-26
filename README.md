@@ -2,7 +2,7 @@
 
 **Motivation:** [JSON Schema](https://json-schema.org/) provides a comprehensive vocabulary for property-level constraints, but lacks a vocabulary for complex constraints between properties.
 
-The [JSON Schema](https://json-schema.org/) interproperty expressions extension provides a vocabulary for defining constraints between properties as [relational expressions](https://en.wikipedia.org/wiki/Relational_operator).
+The JSON Schema interproperty expressions extension provides a vocabulary for defining constraints between properties as [relational expressions](https://en.wikipedia.org/wiki/Relational_operator).
 
 The motivation behind using JSON Schema is to sync validation rules between an API and user-interface written in different programming languages.
 
