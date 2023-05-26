@@ -117,7 +117,7 @@ For example:
   "properties": {
     "expression": {
       "type": "string",
-      "description": "Relational expression between two or more properties, surrounded by curly-braces, where true means valid."
+      "description": "Relational expression between two or more properties where true means valid."
     },
     "type": {
       "type": "string",
@@ -174,6 +174,8 @@ An expression where [operators](https://en.wikipedia.org/wiki/Operation_(mathema
 
     This avoids a [lookahead](https://en.wikipedia.org/wiki/Parsing#Lookahead) when parsing an otherwise ambiguous operator such as `<` and `<=`.
   </details>
+
+* Properties are surround by curly-braces (i.e. `{` and `}`) with dot-notation for nested properties.
 
 The following table documents supported [**arithmetic** operators](https://en.wikipedia.org/wiki/Arithmetic).
 
