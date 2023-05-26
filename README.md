@@ -129,9 +129,11 @@ For example:
       "description": "Message to display if expression is not valid."
     },
     "properties": {
+      "type": "array",
+      "description": "Array of property names included in expression.",
       "items": {
         "type": "string",
-        "description": "Property name. Dot notation for nested properties."
+        "description": "Property name with dot notation for nested properties."
       }
     }
   }
@@ -175,7 +177,7 @@ An expression where [operators](https://en.wikipedia.org/wiki/Operation_(mathema
     This avoids a [lookahead](https://en.wikipedia.org/wiki/Parsing#Lookahead) when parsing an otherwise ambiguous operator such as `<` and `<=`.
   </details>
 
-* Properties are surround by curly-braces (i.e. `{` and `}`) with dot-notation for nested properties.
+* Properties are surround by curly-braces (i.e. `{` and `}`) with dot notation for nested properties.
 
 The following table documents supported [**arithmetic** operators](https://en.wikipedia.org/wiki/Arithmetic).
 
