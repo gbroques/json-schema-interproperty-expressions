@@ -74,7 +74,7 @@ This repository features an advanced [CAD](https://en.wikipedia.org/wiki/Compute
 
 To run the demo, open [`index.html`](./index.html) in your web browser of choice.
 
-The demo uses a [postfix expression](https://en.wikipedia.org/wiki/Reverse_Polish_notation), as it's easy to evaluate using a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)), and doesn't require the use of [`eval`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) which poses security risks.
+The demo uses a [postfix expression](https://en.wikipedia.org/wiki/Reverse_Polish_notation), as it's easy to evaluate using a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)), and avoids the use of [`eval`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) which poses security risks.
 
 (⚠️ *Edge cases are not tested.*)
 
