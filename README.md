@@ -19,11 +19,11 @@ This demo uses an expression in [postfix notation](https://en.wikipedia.org/wiki
 
 (⚠️ *Edge cases are not tested.*)
 
-The below GIF demonstrates validating the complex relationship between three related inputs.
+The below **GIF** demonstrates validating the complex relationship between three related inputs explained by the **Diagram**.
 
 The user can adjust any of the three inputs when the constraint is violated.
 
-|Demo|Diagram|
+|GIF|Diagram|
 |---|---|
 |![Demo](./json-schema-interproperty-expressions-demo.gif)|![Diagram](./diagram.svg)|
 
