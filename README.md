@@ -129,7 +129,6 @@ For example:
       "description": "Message to display if expression is not valid."
     },
     "properties": {
-      a
       "items": {
         "type": "string",
         "description": "Property name. Dot notation for nested properties."
