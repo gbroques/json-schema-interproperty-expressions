@@ -1,15 +1,17 @@
 /**
  * Evaluates an expression in postfix notation.
  *
+ * @see https://en.wikipedia.org/wiki/Reverse_Polish_notation
+ *
  * The expression MAY contain variables surrounded by curly braces
  * which are substituted according to the `variables` map.
  *
- * Tokens (i.e. variables, operators, and operands) SHOULD
+ * Tokens (i.e. operands and operators) SHOULD
  * be delimited by white-space.
  *
  * For supported operators, see below `operators` map.
  *
- * Errors returned as part of the result instead of thrown.
+ * Errors are returned as part of the result instead of thrown.
  *
  * The time complexity of the algorithm is O(n),
  * where n is the length of the expression.
