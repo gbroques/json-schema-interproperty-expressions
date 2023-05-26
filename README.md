@@ -2,7 +2,7 @@
 
 **Motivation:** [JSON Schema](https://json-schema.org/) provides a comprehensive [vocabulary](https://json-schema.org/learn/glossary.html#vocabulary) for property-level constraints, but lacks a vocabulary for [relational constraints](https://en.wikipedia.org/wiki/Relational_operator) *between* properties.
 
-Simple use-cases for the interproperty expressions [extension](https://json-schema.org/understanding-json-schema/reference/schema.html) are:
+Simple use-cases for interproperty expressions are:
 
 * ensuring an end date is after a start date
   
