@@ -77,40 +77,17 @@ function evaluatePostfixExpression(expression, variables = {}) {
 
 function* tokens(expression, variables) {
     let token = "";
-    for (const value of substitutedVariables(expression, variables)) {
-        if (value !== " ") {
-            if (isCharacter(value)) {
-                token += value;
-            } else { // substituted variable
-                yield value;
-            }
-        } else {
-            if (token) {
+    for (const character of expression) {
+        if (character === "}") {
+            token = variables[token];
+        } else if (character === " ") {
+            if (token !== "") {
                 yield token;
                 token = "";
             }
+        } else if (character !== "{") {
+            token += character;
         }
     }
-    if(token) yield token;
-}
-
-function* substitutedVariables(expression, variables) {
-    let start = -1;
-    for (let i = 0; i < expression.length; i++) {
-        const character = expression[i];
-        if (character === "{") {
-            start = i;
-        } else if (character === "}") {
-            const name = expression.substring(start + 1, i);
-            const value = variables[name];
-            yield value;
-            start = -1;
-        } else if (start < 0) {
-            yield character;
-        }
-    }
-}
-
-function isCharacter(value) {
-    return typeof value === "string" && value.length === 1;
+    if (token !== "") yield token;
 }
