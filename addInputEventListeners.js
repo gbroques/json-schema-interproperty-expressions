@@ -52,10 +52,12 @@ function extractVariables(form, schema) {
 
 /**
  * Casts a string to a JavaScript type based on the JSON Schema type.
- * 
+ *
+ * @see https://json-schema.org/understanding-json-schema/reference/type.html
+ *
  * @param {string} value A string value.
  * @param {string} type JSON Schema type.
- * @see https://json-schema.org/understanding-json-schema/reference/type.html
+ * @returns {string|number|boolean} Potentially casted string value.
  */
 function cast(value, type) {
     switch(type) {
