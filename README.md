@@ -200,3 +200,10 @@ The following table documents supported [**relational** operators](https://en.wi
 |`≥`|Greater than or equal to|2|
 |`=`|Equal to|2|
 |`≠`|Not equal to|2|
+
+## Related Work
+
+According to "*[A Catalogue of Inter-parameter Dependencies in RESTful Web APIs](https://www.researchgate.net/publication/336816181_A_Catalogue_of_Inter-parameter_Dependencies_in_RESTful_Web_APIs)*", "Arithmetic / Relational" dependencies between parameters are the most recurrent across the APIs examined. Additionally, 17% of the inter-parameter dependencies
+found are of this type.
+
+[![Frequency of the dependencies according to the number of occurrences and the number of APIs (out of 40) presenting them.](inter-parameter-dependencies-in-webapis.webp)](https://medium.com/isa-group/inter-parameter-dependencies-in-rest-apis-4664e901c124)
