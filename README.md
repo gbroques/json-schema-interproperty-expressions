@@ -172,6 +172,7 @@ An expression where [operators](https://en.wikipedia.org/wiki/Operation_(mathema
 * Operators are one symbol.
   <details>
     <summary>Rationale</summary>
+
     This avoids a [lookahead](https://en.wikipedia.org/wiki/Parsing#Lookahead) when parsing a otherwise ambiguous operator such as `<` and `<=`.
   </details>
 
