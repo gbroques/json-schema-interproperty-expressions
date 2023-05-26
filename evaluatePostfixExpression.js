@@ -70,7 +70,7 @@ function evaluatePostfixExpression(expression, variables = {}) {
     }
     const result = stack.pop();
     const error = stack.length ? 
-        new Error(`Unevaluated operands "${stack.join(', ')}".`) :
+        new Error(`Unevaluated operands "${stack.join(", ")}".`) :
         null;
     return [result, error];
 }

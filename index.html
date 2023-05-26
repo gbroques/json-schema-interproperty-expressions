@@ -86,7 +86,7 @@
                     // Equivalent expression in infix notation:
                     // {HubPitchCircleDiameter} - {HubHolesDiameter} - 10 ≥ {RotorDiskCentralHoleDiameter}
                     "expression": "{HubPitchCircleDiameter} {HubHolesDiameter} - 10 - {RotorDiskCentralHoleDiameter} ≥",
-                    "type": "postfix",  // or potentially "prefix" / "infix"
+                    "type": "postfix",
                     "message": "Must have 5 mm between central hole of rotor disk and hub holes.",
                     "properties": [
                         "HubPitchCircleDiameter",
@@ -119,7 +119,7 @@
         }
         Object.keys(schema.properties).forEach(property => {
             const inputElement = form[property];
-            inputElement.addEventListener('input', handleInput);
+            inputElement.addEventListener("input", handleInput);
         });
         function extractVariables(form) {
             const variables = {};
