@@ -28,7 +28,7 @@ Simple use-cases for interproperty expressions are:
       },
       "interpropertyExpressions": [
         {
-          // Equivalent expression in infix notation:
+          // Equivalent infix expression:
           // {startDate} < {endDate}
           "expression": "{startDate} {endDate} <",
           "type": "postfix",
@@ -60,7 +60,7 @@ Simple use-cases for interproperty expressions are:
       },
       "interpropertyExpressions": [
         {
-          // Equivalent expression in infix notation:
+          // Equivalent infix expression:
           // {password} = {confirmationPassword}
           "expression": "{password} {confirmationPassword} =",
           "type": "postfix",
