@@ -173,7 +173,7 @@ An expression where [operators](https://en.wikipedia.org/wiki/Operation_(mathema
   <details>
     <summary>Rationale</summary>
 
-    This avoids a [lookahead](https://en.wikipedia.org/wiki/Parsing#Lookahead) when parsing a otherwise ambiguous operator such as `<` and `<=`.
+    This avoids a [lookahead](https://en.wikipedia.org/wiki/Parsing#Lookahead) when parsing an otherwise ambiguous operator such as `<` and `<=`.
   </details>
 
 The following table documents supported [**arithmetic** operators](https://en.wikipedia.org/wiki/Arithmetic).
