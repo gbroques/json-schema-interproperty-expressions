@@ -92,7 +92,7 @@ The user can adjust any of the three inputs when the constraint is violated.
 
 ## interpropertyExpressions keyword
 
-The `interpropertyExpressions` keyword **MUST** be included alongside the schema of an object (i.e. where `type` equals `"object"`).
+The `interpropertyExpressions` keyword **MUST** be included alongside the schema of an object.
 
 For example:
 
@@ -113,6 +113,7 @@ For example:
 ```js
 {
   "type": "object",
+  "title": "InterpropertyExpression object",
   "properties": {
     "expression": {
       "type": "string",
