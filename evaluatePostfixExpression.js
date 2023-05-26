@@ -39,7 +39,7 @@
  *                            by curly braces and tokens delimited by white-space.
  * @param {Object.<string, *>} variables Map of variable values by name.
  *                                       Nested values and dot notation are not supported.
- * @param {Object} config
+ * @param {Object} config Advanced configuration options.
  * @param {Object.<string, function>} config.operators Map of additional operators, or override existing operators.
  * @param {string} config.variableStartDelimiter Variable start delimiter. Defaults to "{".
  * @param {string} config.variableEndDelimiter Variable end delimiter. Defaults to "}".
