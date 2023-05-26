@@ -74,8 +74,7 @@ function* tokens(expression, variables) {
             if (typeof value === "string" && value.length === 1) {
                 token += value;
             } else {
-                // substitute variable value
-                yield value;
+                yield value; // substituted variable
             }
         } else {
             if (token) {
