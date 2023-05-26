@@ -11,7 +11,7 @@ Simple use-cases for interproperty expressions are:
   <details>
     <summary>Expand JSON schema</summary>
 
-    ```json
+    ```js
     {
       "type": "object",
       "properties": {
@@ -43,7 +43,7 @@ Simple use-cases for interproperty expressions are:
   <details>
     <summary>Expand JSON schema</summary>
 
-    ```json
+    ```js
     {
       "type": "object",
       "properties": {
