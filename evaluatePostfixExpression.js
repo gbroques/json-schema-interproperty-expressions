@@ -61,7 +61,7 @@ function evaluatePostfixExpression(expression, variables = {}) {
             const result = operator(a, b);
             stack.push(result);
         } else {
-            stack.push(token)
+            stack.push(token);
         }
     }
     return stack.pop();
