@@ -34,6 +34,7 @@
  * @param {string} expression Expression in postfix notation with variables surrounded
  *                            by curly braces and tokens delimited by white-space.
  * @param {Object.<string, *>} variables Map of variable values by name.
+ *                                       Nested values and dot notation are not supported.
  * @returns {Array} Two element array containing result of evaluated expression, and potential parsing error.
  *                  The result can be a number for an arithmetic expression or boolean for relational expression.
  */
