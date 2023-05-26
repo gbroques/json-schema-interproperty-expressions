@@ -9,6 +9,8 @@
  *
  * For supported operators, see below `operators` map.
  *
+ * Errors are not thrown, and instead returned as part of the result.
+ *
  * The time complexity of the algorithm is O(n),
  * where n is the length of the expression.
  *
@@ -32,8 +34,8 @@
  * @param {string} expression Expression in postfix notation with variables surrounded
  *                            by curly braces and tokens delimited by white-space.
  * @param {Object.<string, *>} variables Map of variable values by name.
- * @returns {*} Result of evaluated expression.
- *              A number for an arithmetic expression or boolean for relational expression.
+ * @returns {Array} Two element array containing result of evaluated expression, and potential parsing error.
+ *                  The result can be a number for an arithmetic expression or boolean for relational expression.
  */
 function evaluatePostfixExpression(expression, variables = {}) {
     const stack = [];
@@ -65,7 +67,12 @@ function evaluatePostfixExpression(expression, variables = {}) {
             stack.push(token);
         }
     }
-    return stack.pop();
+    const result = stack.pop();
+    let error = null;
+    if (stack.length) {
+        error = new Error(`Unevaluated operands "${stack.join(', ')}".`)
+    }
+    return [result, error];
 }
 
 function* tokens(expression, variables) {
