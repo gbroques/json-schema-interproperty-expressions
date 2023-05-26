@@ -9,7 +9,7 @@ Simple use-cases for interproperty expressions are:
 * ensuring an end date is after a start date
   
   <details>
-    <summary>Expand JSON schema</summary>
+    <summary>expand schema</summary>
 
     ```js
     {
@@ -43,7 +43,7 @@ Simple use-cases for interproperty expressions are:
 * ensuring a confirmation password is the same as a password
 
   <details>
-    <summary>Expand JSON schema</summary>
+    <summary>expand schema</summary>
 
     ```js
     {
