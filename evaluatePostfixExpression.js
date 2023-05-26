@@ -9,7 +9,7 @@
  *
  * For supported operators, see below `operators` map.
  *
- * Errors are not thrown, and instead returned as part of the result.
+ * Errors returned as part of the result instead of thrown.
  *
  * The time complexity of the algorithm is O(n),
  * where n is the length of the expression.
