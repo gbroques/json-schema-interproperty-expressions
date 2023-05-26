@@ -148,7 +148,7 @@ An expression where [operators](https://en.wikipedia.org/wiki/Operation_(mathema
 
   <details>
     <summary>Rationale</summary>
-    This is to avoid ambiguity in parsing expressions where operands contain potential operators.
+    Avoids ambiguity in parsing expressions where operands contain potential operators.
 
     For example, consider the following expression comparing two dates:
     ```
@@ -160,7 +160,7 @@ An expression where [operators](https://en.wikipedia.org/wiki/Operation_(mathema
     2022 12 -
     ```
 
-    Other examples would include timestamps (e.g. `2018-11-13T20:20:39+00:00`) and addition (i.e. `+`).
+    Other examples include timestamps (e.g. `2018-11-13T20:20:39+00:00`) and addition (i.e. `+`).
   </details>
 
 * Operators have a fixed number of operands.
@@ -174,7 +174,7 @@ An expression where [operators](https://en.wikipedia.org/wiki/Operation_(mathema
   <details>
     <summary>Rationale</summary>
 
-    This avoids a [lookahead](https://en.wikipedia.org/wiki/Parsing#Lookahead) when parsing an otherwise ambiguous operator such as `<` and `<=`.
+    Avoids a [lookahead](https://en.wikipedia.org/wiki/Parsing#Lookahead) when parsing potentially ambiguous operators such as `<` (if `<=` is also an operator).
   </details>
 
 * Properties are surround by curly-braces (i.e. `{` and `}`) with dot notation for nested properties.
