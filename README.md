@@ -7,7 +7,68 @@ The JSON Schema interproperty expressions [extension](https://json-schema.org/un
 Simple use-cases for interproperty expressions are:
 
 * ensuring an end date is after a start date
+  
+  <details>
+    <summary>Expand JSON schema</summary>
+
+    ```json
+    {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "title": "Start Date"
+        },
+        "endDate": {
+          "type": "string",
+          "title": "End Date"
+        }
+      },
+      "interpropertyExpressions": [
+        {
+          // Equivalent expression in infix notation:
+          // {startDate} < {endDate}
+          "expression": "{startDate} {endDate} <",
+          "type": "postfix",
+          "message": "End date must be after start date.",
+          "properties": ["startDate", "endDate"]
+        }
+      ]
+    }
+    ```
+  </details>
+
 * ensuring a confirmation password is the same as a password
+
+  <details>
+    <summary>Expand JSON schema</summary>
+
+    ```json
+    {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string",
+          "title": "Password"
+        },
+        "confirmationPassword": {
+          "type": "string",
+          "title": "Confirm Password"
+        }
+      },
+      "interpropertyExpressions": [
+        {
+          // Equivalent expression in infix notation:
+          // {password} = {confirmationPassword}
+          "expression": "{password} {confirmationPassword} =",
+          "type": "postfix",
+          "message": "Confirmation password must match password.",
+          "properties": ["password", "confirmationPassword"]
+        }
+      ]
+    }
+    ```
+  </details>
 
 This repository features an advanced [CAD](https://en.wikipedia.org/wiki/Computer-aided_design) example where the user inputs values defining the [hub](https://en.wikipedia.org/wiki/Wheel#Hub) and [rotor](https://en.wikipedia.org/wiki/Rotor_(electric)) for an [electric generator](https://en.wikipedia.org/wiki/Electric_generator).
 
