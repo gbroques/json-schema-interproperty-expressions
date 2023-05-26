@@ -6,7 +6,7 @@ The JSON Schema interproperty expressions extension provides a vocabulary for de
 
 The motivation behind using JSON Schema is to sync validation rules between an API and user-interface written in different programming languages.
 
-Simple use-cases for interproperty constraints:
+Simple use-cases for interproperty constraints are:
 
 * ensuring an end date is after a start date
 * ensuring a confirmation password is the same as a password
