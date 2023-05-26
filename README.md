@@ -183,7 +183,6 @@ The following table documents supported [**arithmetic** operators](https://en.wi
 
 |Operator|Name|Operands|
 |:------:|----|:------:|
-|`-`|[Unary](https://en.wikipedia.org/wiki/Unary_operation)|1|
 |`+`|[Addition](https://en.wikipedia.org/wiki/Addition)|2|
 |`-`|[Subtraction](https://en.wikipedia.org/wiki/Subtraction)|2|
 |`*`|[Multiplication](https://en.wikipedia.org/wiki/Multiplication)|2|
