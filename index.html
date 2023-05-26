@@ -125,7 +125,7 @@
             for (const element of form.elements) {
                 const {name, value} = element;
                 const {type} = schema.properties[name];
-                variables[element.name] = cast(value, type);
+                variables[name] = cast(value, type);
             }
             return variables;
         }
