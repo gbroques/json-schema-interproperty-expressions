@@ -79,10 +79,10 @@ function* tokens(expression, variables) {
     let token = "";
     for (const value of substitutedVariables(expression, variables)) {
         if (value !== " ") {
-            if (typeof value === "string" && value.length === 1) {
+            if (isCharacter(value)) {
                 token += value;
-            } else {
-                yield value; // substituted variable
+            } else { // substituted variable
+                yield value;
             }
         } else {
             if (token) {
@@ -91,7 +91,7 @@ function* tokens(expression, variables) {
             }
         }
     }
-    yield token;
+    if(token) yield token;
 }
 
 function* substitutedVariables(expression, variables) {
@@ -109,4 +109,8 @@ function* substitutedVariables(expression, variables) {
             yield character;
         }
     }
+}
+
+function isCharacter(value) {
+    return typeof value === "string" && value.length === 1;
 }
