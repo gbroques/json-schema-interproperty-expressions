@@ -44,6 +44,7 @@ function evaluatePostfixExpression(expression, variables = {}) {
         "*": (a, b) => a * b,
         "/": (a, b) => a / b,
         "^": (a, b) => a ** b,
+        "%": (a, b) => a % b,
 
         // Relational operators
         "<": (a, b) => a < b,
