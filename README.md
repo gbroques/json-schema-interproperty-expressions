@@ -89,3 +89,110 @@ The user can adjust any of the three inputs when the constraint is violated.
 |![Demo](./json-schema-interproperty-expressions-demo.gif)|![Diagram](./diagram.svg)|
 
 [`diagram.drawio`](./diagram.drawio) may be edited at https://app.diagrams.net/
+
+## interpropertyExpressions keyword
+
+The `interpropertyExpressions` keyword **MUST** be included alongside the schema of an object (i.e. where `type` equals `"object"`).
+
+For example:
+
+```js
+{
+  "type": "object",
+  "properties": {
+    // ...
+  },
+  "interpropertyExpressions": [
+    // ...
+  ]
+}
+```
+
+`interpropertyExpressions` includes an array of `InterpropertyExpression` objects whose schema is defined by the following [meta-schema](https://json-schema.org/learn/glossary.html#meta-schema):
+
+```js
+{
+  "type": "object",
+  "properties": {
+    "expression": {
+      "type": "string",
+      "description": "Relational expression between two or more properties, surrounded by curly-braces, where true means valid."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of expression",
+      "enum": ["postfix", "infix", "prefix"]
+    },
+    "message": {
+      "type": "string",
+      "description": "Message to display if expression is not valid."
+    },
+    "properties": {
+      a
+      "items": {
+        "type": "string",
+        "description": "Property name. Dot notation for nested properties."
+      }
+    }
+  }
+}
+```
+
+### Postfix Expression
+
+An expression where [operators](https://en.wikipedia.org/wiki/Operation_(mathematics)) follow [operands](https://en.wikipedia.org/wiki/Operand) meeting the following criteria:
+
+* Operators and operands are delimited by white-space.
+
+  <details>
+    <summary>Rationale</summary>
+    This is to avoid ambiguity in parsing expressions where operands contain potential operators.
+
+    For example, consider the following expression comparing two dates:
+    ```
+    2022-12-25 2022-12-26 <
+    ```
+
+    Then the following expression subtracting two numbers:
+    ```
+    2022 12 -
+    ```
+
+    Other examples would include timestamps (e.g. `2018-11-13T20:20:39+00:00`) and addition (i.e. `+`).
+  </details>
+
+* Operators have a fixed number of operands.
+
+  <details>
+    <summary>Rationale</summary>
+    If every operator has a fixed number of operands, then parentheses are not needed.
+  </details>
+
+* Operators are one symbol.
+  <details>
+    <summary>Rationale</summary>
+    This avoids a [lookahead](https://en.wikipedia.org/wiki/Parsing#Lookahead) when parsing a otherwise ambiguous operator such as `<` and `<=`.
+  </details>
+
+The following table documents supported [**arithmetic** operators](https://en.wikipedia.org/wiki/Arithmetic).
+
+|Operator|Name|Operands|
+|:------:|----|:------:|
+|`-`|[Unary](https://en.wikipedia.org/wiki/Unary_operation)|1|
+|`+`|[Addition](https://en.wikipedia.org/wiki/Addition)|2|
+|`-`|[Subtraction](https://en.wikipedia.org/wiki/Subtraction)|2|
+|`*`|[Multiplication](https://en.wikipedia.org/wiki/Multiplication)|2|
+|`/`|[Division](https://en.wikipedia.org/wiki/Division_(mathematics))|2|
+|`^`|[Exponentiation](https://en.wikipedia.org/wiki/Exponentiation)|2|
+|`%`|[Modulo](https://en.wikipedia.org/wiki/Modulo)|2|
+
+The following table documents supported [**relational** operators](https://en.wikipedia.org/wiki/Relational_operator).
+
+|Operator|Name|Operands|
+|:------:|----|:------:|
+|`<`|Less than|2|
+|`≤`|Less than or equal to|2|
+|`>`|Greater than|2|
+|`≥`|Greater than or equal to|2|
+|`=`|Equal to|2|
+|`≠`|Not equal to|2|
