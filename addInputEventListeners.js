@@ -1,9 +1,9 @@
 import evaluatePostfixExpression from "./evaluatePostfixExpression.js";
 
 export default function addInputEventListeners(form, schema, getValidationMessageElement) {
+    const handleInput = createInputHandler(form, schema, getValidationMessageElement);
     Object.keys(schema.properties).forEach(property => {
         const inputElement = form[property];
-        const handleInput = createInputHandler(form, schema, getValidationMessageElement);
         inputElement.addEventListener("input", handleInput);
     });
 }
