@@ -6,7 +6,7 @@
  * The expression MAY contain variables surrounded by curly braces
  * which are substituted according to the `variables` map.
  *
- * Tokens (i.e. operands and operators) SHOULD
+ * Tokens (i.e. operators and operands) SHOULD
  * be delimited by white-space.
  *
  * For supported operators, see below `operators` map.
