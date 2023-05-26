@@ -72,7 +72,15 @@ Simple use-cases for interproperty expressions are:
 
 This repository features an advanced [CAD](https://en.wikipedia.org/wiki/Computer-aided_design) example where the user inputs values defining the [hub](https://en.wikipedia.org/wiki/Wheel#Hub) and [rotor](https://en.wikipedia.org/wiki/Rotor_(electric)) for an [electric generator](https://en.wikipedia.org/wiki/Electric_generator).
 
-To run the demo, open [`index.html`](./index.html) in your web browser of choice.
+To run the demo:
+
+1. Install dependencies (requires [Node.js](https://nodejs.org/en)).
+
+       npm install
+
+2. Start local HTTP server.
+
+       npm start
 
 The demo uses a [postfix expression](https://en.wikipedia.org/wiki/Reverse_Polish_notation), as it's easy to evaluate using a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)), and avoids the use of [`eval`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) which poses security risks.
 

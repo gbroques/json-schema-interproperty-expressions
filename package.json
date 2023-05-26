@@ -1,0 +1,24 @@
+{
+  "name": "json-schema-interproperty-expressions",
+  "version": "1.0.0",
+  "description": "JSON Schema extension for arithmetic and relational constraints between properties.",
+  "main": "addInputEventListeners.js",
+  "scripts": {
+    "start": "npx http-server .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbroques/json-schema-interproperty-expressions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gbroques/json-schema-interproperty-expressions/issues"
+  },
+  "homepage": "https://github.com/gbroques/json-schema-interproperty-expressions#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

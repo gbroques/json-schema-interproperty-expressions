@@ -40,7 +40,7 @@
  * @returns {Array} Two element array containing result of evaluated expression, and potential parsing error.
  *                  Result can be a number for an arithmetic expression or boolean for relational expression.
  */
-function evaluatePostfixExpression(expression, variables = {}) {
+export default function evaluatePostfixExpression(expression, variables = {}) {
     const stack = [];
     const operators = {
         // Arithmetic operators
