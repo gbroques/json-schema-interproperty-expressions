@@ -90,7 +90,7 @@ The user can adjust any of the three inputs when the constraint is violated.
 
 ## interpropertyExpressions keyword
 
-The `interpropertyExpressions` keyword **MUST** be included alongside the schema of an object.
+The `interpropertyExpressions` [keyword](https://json-schema.org/learn/glossary.html#keyword) **MUST** be included alongside the schema of an object.
 
 For example:
 
